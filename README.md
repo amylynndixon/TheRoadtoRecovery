@@ -14,17 +14,17 @@ The site serves as an educational resource for hand transplant patients, explain
 
 ## Reviving the Site
 
-The original site (road2recover.com) went offline after the domain expired, and no local backups of the project files were available. In April 2026, the site was reconstructed using the [Wayback Machine](https://web.archive.org/web/20130624075652/http://road2recover.com/) as the primary reference.
+In April 2026, the site was reconstructed using the [Wayback Machine](https://web.archive.org/web/20130624075652/http://road2recover.com/) as the primary reference.
 
 The revival process involved:
 
 - **Content extraction** — Pulling all text content from the archived pages using the Wayback Machine's cached version of road2recover.com
-- **Asset recovery** — Downloading all original images (neuron diagrams, splint illustrations, nerve bundle cross-sections, and background artwork) from the Wayback Machine's archived copies
+- **Asset recovery** — Downloading all original SVG images, originally created using Adobe Illustrator, (neuron diagrams, splint illustrations, nerve bundle cross-sections, and background artwork) from the Wayback Machine's archived copies
 - **Style forensics** — Analyzing the original CSS stylesheets preserved in the archive to faithfully recreate the color palette, typography (Georgia, Gill Sans), section backgrounds, and layout
-- **Iterative reconstruction** — Comparing the rebuilt site section-by-section against the archived original and screen recordings of the original site to match the design as closely as possible
+- **Iterative reconstruction** — Comparing the rebuilt site section-by-section against the archived original and screen recordings of the original site to match the design as closely as possible ;) 
 
-Some interactive elements built with Raphaël.js (a JavaScript SVG library) could not be recovered, as they were generated at runtime and not preserved in the archive. These are being recreated as static alternatives.
+Some interactive elements built with Raphaël.js (a JavaScript SVG library) could not be recovered, as they were generated at runtime and not preserved in the archive. These are currently in the process of being recreated.
 
 ## License
 
-Copyright 2013 Amy Dixon. All rights reserved.
+Copyright © 2013-2026 Amy Dixon. All rights reserved.
