@@ -694,51 +694,38 @@ img {
     padding-right: 20px !important;
   }
 
-  .main-heading-two {
-    font-size: 56px;
-    line-height: 61px;
-  }
-
-  .main-heading-three,
-  .main-heading-four,
-  .main-heading-five,
-  .main-heading-six,
-  .main-heading-seven {
-    font-size: 40px;
-    line-height: 50px;
-  }
-
-  .content-row,
-  .content-row.reverse {
-    flex-direction: column;
-  }
-
-  .image-col {
-    flex: none;
-    width: 100%;
-  }
-
-  #intro {
-    padding-top: 80px;
-  }
-
-  .desktop-nav {
-    flex-wrap: wrap;
-  }
-
-  .links a {
-    width: auto;
-    font-size: 11px;
-    margin: 2px 5px;
-  }
-}
-
-@media screen and (max-width: 600px) {
+  /* Hero title — remove desktop padding, center on mobile */
   .main-heading-two {
     font-size: 42px;
     line-height: 48px;
+    padding-left: 0 !important;
+    text-align: center;
   }
 
+  .sub-heading {
+    padding-left: 0 !important;
+    text-align: center;
+    font-size: 20px;
+  }
+
+  /* Hero background — mobile-specific image, pinned to top */
+  #contact {
+    background-image: url('images/NerveRoad_HeroBackgroundMobile.jpg');
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: #c1863a;
+    padding: 100px 0 60px;
+  }
+
+  /* Intro text — full width on mobile */
+  .intro-text {
+    max-width: 100%;
+    margin: 0;
+    padding-top: 30px;
+  }
+
+  /* Section headings */
   .main-heading-three,
   .main-heading-four,
   .main-heading-five,
@@ -748,9 +735,85 @@ img {
     line-height: 40px;
   }
 
+  /* Stack content rows vertically */
+  .content-row,
+  .content-row.reverse {
+    flex-direction: column;
+  }
+
+  /* Reset all image column overrides for mobile */
+  .image-col,
+  #about .content-row:first-of-type .image-col,
+  .nerve-anatomy-row .image-col {
+    flex: none !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+
+  .image-col img {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Hand illustration — reset desktop overrides */
+  #features .image-block {
+    max-width: 100%;
+    margin-left: 0;
+  }
+
+  /* Neuron diagrams — stack vertically on mobile */
+  .neuron-diagrams {
+    flex-direction: column;
+    align-items: center;
+    padding-left: 0;
+    gap: 40px;
+  }
+
+  .neuron-diagram img {
+    height: 350px;
+  }
+
+  /* Sensory text — full width below diagrams on mobile */
+  .sensory-text {
+    flex: none;
+    width: 100%;
+  }
+
+  /* Features text — full width */
+  .features-text {
+    max-width: 100%;
+  }
+
+  /* Portfolio text — full width */
+  #portfolio .portfolio-text {
+    max-width: 100%;
+  }
+
+  /* Reintegration — full width */
+  #reintegration .span12 {
+    max-width: 100%;
+  }
+
+  /* Rehabilitation — full width */
+  #rehabilitation .span12 {
+    max-width: 100%;
+  }
+
+  /* Nav */
+  .desktop-nav {
+    flex-wrap: wrap;
+  }
+
   .links a {
-    font-size: 10px;
     width: auto;
-    margin: 2px 3px;
+    font-size: 10px;
+    margin: 2px 5px;
+    border-bottom: none;
+    padding-bottom: 2px;
+  }
+
+  /* Brain diagram — full width */
+  .brain-diagram {
+    max-width: 100%;
   }
 }
