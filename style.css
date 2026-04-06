@@ -590,6 +590,38 @@ img {
   border-bottom: none !important;
 }
 
+/* Definition tooltips */
+.def-tooltip {
+  position: absolute;
+  background: #333;
+  color: #fff;
+  font-size: 13px;
+  line-height: 1.4;
+  padding: 8px 12px;
+  border-radius: 6px;
+  max-width: 280px;
+  z-index: 1000;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  font-weight: normal;
+  font-family: "Georgia", serif;
+}
+
+.def-tooltip.visible {
+  opacity: 1;
+}
+
+.def-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: #333;
+}
+
 .about-link {
   color: #ffd200 !important;
   font-weight: bold;
