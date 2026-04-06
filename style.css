@@ -700,12 +700,14 @@ img {
     line-height: 48px;
     padding-left: 0 !important;
     text-align: left;
+    font-weight: bold;
   }
 
   .sub-heading {
     padding-left: 0 !important;
     text-align: center;
     font-size: 20px;
+    font-weight: bold;
   }
 
   /* Hero background — mobile-specific image, pinned to top */
