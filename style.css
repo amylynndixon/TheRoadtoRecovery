@@ -791,6 +791,7 @@ img {
   /* Neuron diagrams — side by side, centered on mobile */
   .neuron-diagrams {
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
     padding-left: 0;
