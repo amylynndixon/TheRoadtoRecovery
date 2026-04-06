@@ -763,16 +763,16 @@ img {
     margin-left: 0;
   }
 
-  /* Neuron diagrams — stack vertically on mobile */
+  /* Neuron diagrams — side by side, centered on mobile */
   .neuron-diagrams {
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    justify-content: center;
     padding-left: 0;
-    gap: 40px;
+    gap: 20px;
   }
 
   .neuron-diagram img {
-    height: 350px;
+    height: 200px;
   }
 
   /* Sensory text — full width below diagrams on mobile */
