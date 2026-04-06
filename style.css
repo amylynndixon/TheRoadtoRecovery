@@ -622,6 +622,13 @@ img {
   border-top-color: #333;
 }
 
+.def-tooltip.below::after {
+  top: auto;
+  bottom: 100%;
+  border-top-color: transparent;
+  border-bottom-color: #333;
+}
+
 [data-definition] {
   cursor: pointer;
 }

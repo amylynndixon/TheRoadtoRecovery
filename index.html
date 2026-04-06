@@ -42,7 +42,7 @@
 
           <div id="intro" class="intro-text">
             <p class="col-white">There are a lot of things to consider after receiving a hand transplant; New medications to take, a new daily routine and intensive hand therapy. For someone who has just received a hand transplant, life is very different than it was before.</p>
-            <p class="col-white"><a href="#peripheralNerves" class="contact-link" id="peripheralNervesBack" data-definition="Nerves in the body that belong to the peripheral nervous system; everything but the brain and spinal cord">Peripheral nerves</a> (any part of the nervous system other than the brain and spinal cord) play an important role in regaining function of a donor hand. After an amputation, nerves become injured and degenerate. Once major nerves have been reattached and a hand is transplanted, nerve regeneration begins to slowly take place. The following pages tell a story of how peripheral nerves regenerate, how the donor hand is reintegrated in the brain after hand transplantation, and why rehabilitation therapy is critical to the process.</p>
+            <p class="col-white"><a href="#peripheralNerves" class="contact-link" id="peripheralNervesBack" data-definition="Nerves in the body that belong to the peripheral nervous system; everything but the brain and spinal cord" data-tooltip-below>Peripheral nerves</a> (any part of the nervous system other than the brain and spinal cord) play an important role in regaining function of a donor hand. After an amputation, nerves become injured and degenerate. Once major nerves have been reattached and a hand is transplanted, nerve regeneration begins to slowly take place. The following pages tell a story of how peripheral nerves regenerate, how the donor hand is reintegrated in the brain after hand transplantation, and why rehabilitation therapy is critical to the process.</p>
           </div>
         </div>
       </div>
@@ -534,7 +534,16 @@
         const tipRect = tooltip.getBoundingClientRect();
 
         let left = rect.left + (rect.width / 2) - (tipRect.width / 2);
-        let top = rect.top - tipRect.height - 4;
+        let top;
+        const placeBelow = link.hasAttribute('data-tooltip-below');
+
+        if (placeBelow) {
+          top = rect.bottom + 8;
+          tooltip.classList.add('below');
+        } else {
+          top = rect.top - tipRect.height - 4;
+          tooltip.classList.remove('below');
+        }
 
         // Keep within viewport
         if (left < 8) left = 8;
