@@ -623,8 +623,7 @@ img {
 }
 
 [data-definition] {
-  cursor: help;
-  border-bottom: 1px dashed currentColor !important;
+  cursor: pointer;
 }
 
 .about-link {
