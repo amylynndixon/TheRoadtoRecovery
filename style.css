@@ -211,11 +211,13 @@ img {
   transition: opacity 0.3s ease;
 }
 
-.nerve-regen-hover:hover .nerve-regen-gif {
+.nerve-regen-hover:hover .nerve-regen-gif,
+.nerve-regen-hover.is-playing .nerve-regen-gif {
   opacity: 1;
 }
 
-.nerve-regen-hover:hover .nerve-regen-static {
+.nerve-regen-hover:hover .nerve-regen-static,
+.nerve-regen-hover.is-playing .nerve-regen-static {
   opacity: 0;
 }
 

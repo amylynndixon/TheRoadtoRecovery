@@ -126,7 +126,7 @@
           </div>
 
           <div class="image-block">
-            <img src="images/HandIllustration_placeholder.png" alt="Hand transplant illustration" loading="lazy">
+            <img src="images/handtransplant.png" alt="Hand transplant illustration" loading="lazy">
           </div>
 
           <div class="features-text">
@@ -993,6 +993,24 @@
       document.getElementById('quiz-overlay').classList.remove('active');
       document.body.style.overflow = '';
     };
+  })();
+  </script>
+
+  <!-- Auto-play animation on scroll -->
+  <script>
+  (function () {
+    var block = document.querySelector('.nerve-regen-hover');
+    if (!block) return;
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          block.classList.add('is-playing');
+        } else {
+          block.classList.remove('is-playing');
+        }
+      });
+    }, { threshold: 0.4 });
+    observer.observe(block);
   })();
   </script>
 </body>
