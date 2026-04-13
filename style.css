@@ -521,6 +521,40 @@ img {
   width: 100%;
 }
 
+.figure-with-caption {
+  position: relative;
+}
+
+.figure-with-caption .figure-caption {
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translate(-50%, 8px);
+  width: min(90%, 640px);
+  background: #f7f4ec;
+  color: #2b2b2b;
+  border-top: 2px solid #336699;
+  padding: 10px 14px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 13px;
+  font-style: italic;
+  line-height: 1.45;
+  text-align: left;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  z-index: 20;
+}
+
+.figure-with-caption:hover .figure-caption,
+.figure-with-caption:focus-within .figure-caption {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 12px);
+}
+
 .video-embed {
   position: relative;
   width: 100%;
