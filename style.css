@@ -193,8 +193,8 @@ img {
   overflow: hidden;
 }
 
-/* Hero + Intro Section (Contact) */
-#contact {
+/* Hero + Intro Section */
+#hero-inner {
   background: #cb872b;
   background-image: url('images/NerveRoad_HeroBackground.jpg');
   background-size: cover;
@@ -1167,7 +1167,7 @@ img {
   }
 
   /* Hero background — mobile-specific image, pinned to top */
-  #contact {
+  #hero-inner {
     background-image: url('images/NerveRoad_HeroBackgroundMobile.jpg');
     background-position: top center;
     background-repeat: no-repeat;

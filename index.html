@@ -78,11 +78,13 @@
 
   <!-- Hero + Intro Section (one continuous background) -->
   <div id="home" class="page">
-    <div id="contact">
+    <div id="hero-inner">
       <div class="container">
         <div class="span12">
-          <h1 class="main-heading-two">The Road to Recovery</h1>
-          <p class="sub-heading">How Peripheral Nerves Regenerate After Hand Transplantation</p>
+          <header>
+            <h1 class="main-heading-two">The Road to Recovery</h1>
+            <p class="sub-heading">How Peripheral Nerves Regenerate After Hand Transplantation</p>
+          </header>
 
           <div id="intro" class="intro-text">
             <p class="col-white">There are a lot of things to consider after receiving a hand transplant; New medications to take, a new daily routine and intensive hand therapy. For someone who has just received a hand transplant, life is very different than it was before.</p>
@@ -784,7 +786,7 @@
       if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         return;
       }
-      var hero = document.getElementById('contact');
+      var hero = document.getElementById('hero-inner');
       var speed = 0.4; // 0 = fixed, 1 = normal scroll, 0.4 = slow drift
 
       window.addEventListener('scroll', function () {
