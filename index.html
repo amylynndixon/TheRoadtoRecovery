@@ -32,6 +32,8 @@
 </head>
 <body>
 
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
   <!-- Navigation -->
   <header class="masthead" id="masthead">
     <nav>
@@ -47,7 +49,7 @@
     </nav>
   </header>
 
-  <main>
+  <main id="main-content">
     <article>
 
   <!-- Hero + Intro Section (one continuous background) -->
@@ -606,7 +608,19 @@
       // Select all definition term links
       const defLinks = document.querySelectorAll('a[data-definition]');
 
-      defLinks.forEach(link => {
+      defLinks.forEach((link, idx) => {
+        // Expose the definition to assistive tech via aria-describedby
+        const def = link.getAttribute('data-definition');
+        if (def) {
+          const descId = 'def-desc-' + idx;
+          const descSpan = document.createElement('span');
+          descSpan.id = descId;
+          descSpan.className = 'sr-only';
+          descSpan.textContent = def;
+          link.insertAdjacentElement('afterend', descSpan);
+          link.setAttribute('aria-describedby', descId);
+        }
+
         if (!isTouchDevice) {
           // Desktop: hover to show
           link.addEventListener('mouseenter', function () {
@@ -743,6 +757,9 @@
   <!-- Subtle parallax on hero background -->
   <script>
     (function () {
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        return;
+      }
       var hero = document.getElementById('contact');
       var speed = 0.4; // 0 = fixed, 1 = normal scroll, 0.4 = slow drift
 
