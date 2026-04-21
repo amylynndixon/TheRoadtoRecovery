@@ -1347,7 +1347,18 @@ img {
   text-transform: uppercase;
   letter-spacing: 0.5px;
   white-space: nowrap;
+  border-width: 2px;
   transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+@property --gemini-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes gemini-spin {
+  to { --gemini-angle: 360deg; }
 }
 
 /* Light mode hover: preview the dark mode look */
@@ -1405,18 +1416,27 @@ img {
   border-bottom-color: var(--rtr-text-muted);
 }
 [data-theme="dark"] #theme-toggle { color: var(--rtr-text); }
-/* Dark mode hover: rainbow halo with light blue pill + per-word colors */
+/* Dark mode hover: Gemini AI-mode pastel wash + animated gradient stroke */
 [data-theme="dark"] #theme-toggle:hover {
-  background: #cce5ff;
   color: #002060;
-  border-color: #002060;
-  box-shadow:
-    0 0 0 1px #ff0000,
-    0 0 0 2px #ff8c00,
-    0 0 0 3px #ffd700,
-    0 0 0 4px #00b050,
-    0 0 0 5px #1e90ff,
-    0 0 0 6px #8a2be2;
+  background:
+    linear-gradient(120deg, #e6f0ff 0%, #fae8f5 50%, #ece4ff 100%) padding-box,
+    conic-gradient(from var(--gemini-angle),
+      #4285F4, #9B72F4, #F4B400, #DB4437, #0F9D58, #4285F4) border-box;
+  background-size: 200% 100%, auto;
+  border-color: transparent;
+  box-shadow: none;
+  font-weight: 700;
+  animation: gemini-spin 3s linear infinite, gemini-wash 6s ease-in-out infinite;
+}
+
+@keyframes gemini-wash {
+  0%, 100% { background-position: 0% 50%, 0 0; }
+  50%      { background-position: 100% 50%, 0 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-theme="dark"] #theme-toggle:hover { animation: none; }
 }
 [data-theme="dark"] #theme-toggle:hover [data-word="turn"]  { color: #4B0082; }
 [data-theme="dark"] #theme-toggle:hover [data-word="onoff"] { color: #9D174D; }
