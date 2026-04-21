@@ -1331,17 +1331,22 @@ img {
   top: 50%;
   right: 20px;
   transform: translateY(-50%);
-  width: 36px;
-  height: 36px;
+  height: 32px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 6px;
   background: transparent;
   border: 1px solid currentColor;
-  border-radius: 50%;
+  border-radius: 16px;
   color: #000;
   cursor: pointer;
-  padding: 0;
+  padding: 0 12px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
   transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
 }
 
@@ -1351,21 +1356,22 @@ img {
 }
 
 #theme-toggle .theme-icon-sun { display: none; }
-#theme-toggle .theme-icon-moon { display: block; }
+#theme-toggle .theme-icon-moon { display: inline-block; }
 
-[data-theme="dark"] #theme-toggle .theme-icon-sun { display: block; }
+[data-theme="dark"] #theme-toggle .theme-icon-sun { display: inline-block; }
 [data-theme="dark"] #theme-toggle .theme-icon-moon { display: none; }
 
 @media only screen and (max-width: 767px) {
   #theme-toggle {
-    position: absolute;
     top: 8px;
     right: 8px;
-    width: 30px;
-    height: 30px;
+    height: 28px;
+    padding: 0 10px;
+    font-size: 10px;
+    gap: 4px;
   }
-  #theme-toggle svg { width: 16px; height: 16px; }
-  .desktop-nav { padding-right: 36px; }
+  #theme-toggle svg { width: 14px; height: 14px; }
+  .desktop-nav { padding-right: 0; }
 }
 
 /* ===================================
@@ -1550,13 +1556,12 @@ img {
   filter: grayscale(1) brightness(0.85);
 }
 
-/* Neuron diagrams already have a CSS filter recoloring SVGs blue —
-   override to monochrome */
+/* Neuron diagrams: medium gray so they're visible/hoverable; yellow on hover */
 [data-theme="dark"] .neuron-diagram img {
-  filter: grayscale(1) brightness(0.85) opacity(0.85);
+  filter: brightness(0) invert(0.55);
 }
 [data-theme="dark"] .neuron-diagram:hover img {
-  filter: grayscale(1) brightness(1.1);
+  filter: brightness(0) saturate(100%) invert(80%) sepia(60%) saturate(500%) hue-rotate(5deg) brightness(105%);
 }
 
 /* Brain label flips to dark + light gray */
