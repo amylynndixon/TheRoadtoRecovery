@@ -1322,3 +1322,316 @@ img {
     max-width: 100%;
   }
 }
+
+/* ===================================
+   Theme toggle button (lives in navbar)
+   =================================== */
+#theme-toggle {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  color: #000;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+#theme-toggle:hover {
+  color: #ADD626;
+  border-color: #ADD626;
+}
+
+#theme-toggle .theme-icon-sun { display: none; }
+#theme-toggle .theme-icon-moon { display: block; }
+
+[data-theme="dark"] #theme-toggle .theme-icon-sun { display: block; }
+[data-theme="dark"] #theme-toggle .theme-icon-moon { display: none; }
+
+@media only screen and (max-width: 767px) {
+  #theme-toggle {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 30px;
+    height: 30px;
+  }
+  #theme-toggle svg { width: 16px; height: 16px; }
+  .desktop-nav { padding-right: 36px; }
+}
+
+/* ===================================
+   Dark mode — Kindle monochrome
+   Removable as a single block.
+   =================================== */
+[data-theme="dark"] {
+  --rtr-bg: #000;
+  --rtr-surface: #0d0d0d;
+  --rtr-text: #cccccc;
+  --rtr-text-muted: #888888;
+  --rtr-border: #222222;
+}
+
+[data-theme="dark"] body {
+  background: var(--rtr-bg);
+  color: var(--rtr-text);
+}
+
+[data-theme="dark"] a { color: var(--rtr-text); }
+
+/* Navbar */
+[data-theme="dark"] .masthead {
+  background: var(--rtr-bg);
+  border-bottom: 1px solid var(--rtr-border);
+}
+[data-theme="dark"] .links a {
+  color: var(--rtr-text);
+  border-bottom-color: var(--rtr-text-muted);
+}
+[data-theme="dark"] #theme-toggle { color: var(--rtr-text); }
+[data-theme="dark"] #theme-toggle:hover {
+  color: #ADD626;
+  border-color: #ADD626;
+}
+
+/* Skip link */
+[data-theme="dark"] .skip-link {
+  background: var(--rtr-surface);
+  color: var(--rtr-text);
+  border-color: var(--rtr-text);
+}
+
+/* Hero — grayscale image with dark overlay between bg and text */
+[data-theme="dark"] #hero-inner {
+  background-image: none;
+  background-color: var(--rtr-bg);
+  position: relative;
+  isolation: isolate;
+}
+[data-theme="dark"] #hero-inner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('images/NerveRoad_HeroBackground.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(1) brightness(0.7);
+  z-index: 0;
+}
+[data-theme="dark"] #hero-inner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1;
+  pointer-events: none;
+}
+[data-theme="dark"] #hero-inner > * {
+  position: relative;
+  z-index: 2;
+}
+[data-theme="dark"] .intro-text p { color: var(--rtr-text); text-shadow: none; }
+[data-theme="dark"] .sub-heading,
+[data-theme="dark"] .contact-link,
+[data-theme="dark"] .contact-link:hover { color: var(--rtr-text); text-shadow: none; }
+[data-theme="dark"] .main-heading-two,
+[data-theme="dark"] .main-heading-seven { text-shadow: none; }
+
+@media only screen and (max-width: 767px) {
+  [data-theme="dark"] #hero-inner::before {
+    background-image: url('images/NerveRoad_HeroBackgroundMobile.jpg');
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+
+/* All non-hero sections → black */
+[data-theme="dark"] #neurons.page,
+[data-theme="dark"] #about,
+[data-theme="dark"] #features,
+[data-theme="dark"] #portfolio,
+[data-theme="dark"] #reintegration-inner,
+[data-theme="dark"] #rehabilitation,
+[data-theme="dark"] #glossary {
+  background: var(--rtr-bg);
+}
+
+/* Body text per section → light gray */
+[data-theme="dark"] #features p,
+[data-theme="dark"] #reintegration p,
+[data-theme="dark"] #rehabilitation p,
+[data-theme="dark"] #portfolio p,
+[data-theme="dark"] #portfolio .sub-heading-three,
+[data-theme="dark"] .glossary-list p,
+[data-theme="dark"] .glossary-list .col-white {
+  color: var(--rtr-text);
+}
+
+/* Glossary terms — keep an accent so they stand out */
+[data-theme="dark"] .glossary-1 { color: #e0d088; }
+
+/* Headings that were dark-on-light flip to light gray */
+[data-theme="dark"] .main-heading-three,
+[data-theme="dark"] .main-heading-four,
+[data-theme="dark"] .main-heading-five,
+[data-theme="dark"] .main-heading-six,
+[data-theme="dark"] .main-heading-seven,
+[data-theme="dark"] .main-heading-regen {
+  color: var(--rtr-text);
+}
+
+[data-theme="dark"] .sub-heading-one,
+[data-theme="dark"] .sub-heading-two,
+[data-theme="dark"] .sub-heading-three,
+[data-theme="dark"] .sub-heading-five-one,
+[data-theme="dark"] .sub-text-one,
+[data-theme="dark"] .sub-text-two,
+[data-theme="dark"] .sub-text-three {
+  color: var(--rtr-text-muted);
+}
+
+[data-theme="dark"] .sub-heading-four,
+[data-theme="dark"] .sub-heading-six,
+[data-theme="dark"] #rehabilitation .sub-heading-six {
+  color: var(--rtr-text);
+}
+
+/* Inline accent links — neutralize bright color treatments */
+[data-theme="dark"] .about-link,
+[data-theme="dark"] .services-link,
+[data-theme="dark"] .features-link,
+[data-theme="dark"] .def-link,
+[data-theme="dark"] #portfolio .def-link,
+[data-theme="dark"] #reintegration .def-link,
+[data-theme="dark"] #rehabilitation .def-link,
+[data-theme="dark"] .hover-toggle {
+  color: #e0d088 !important;
+  text-shadow: none !important;
+  border-bottom-color: rgba(224, 208, 136, 0.4) !important;
+}
+
+[data-theme="dark"] .about-link:hover,
+[data-theme="dark"] .services-link:hover,
+[data-theme="dark"] .features-link:hover,
+[data-theme="dark"] .def-link:hover,
+[data-theme="dark"] .hover-toggle:hover,
+[data-theme="dark"] a:hover {
+  color: #ADD626 !important;
+}
+
+/* Footer → black */
+[data-theme="dark"] .mastfoot {
+  background: var(--rtr-bg);
+  border-top: 1px solid var(--rtr-border);
+}
+[data-theme="dark"] .mastfoot p { color: var(--rtr-text) !important; }
+
+/* Footer logos: drop the white pill, invert+grayscale to fit Kindle vibe */
+[data-theme="dark"] #hopkins-logo {
+  background: transparent;
+  padding: 0;
+}
+[data-theme="dark"] #hopkins-logo > img,
+[data-theme="dark"] #foot-logo > img {
+  filter: invert(1) grayscale(1) brightness(0.95);
+}
+
+/* Grayscale all imagery (except footer logos handled above) */
+[data-theme="dark"] img:not(#foot-logo img):not(#hopkins-logo img) {
+  filter: grayscale(1) brightness(0.85);
+}
+
+/* Neuron diagrams already have a CSS filter recoloring SVGs blue —
+   override to monochrome */
+[data-theme="dark"] .neuron-diagram img {
+  filter: grayscale(1) brightness(0.85) opacity(0.85);
+}
+[data-theme="dark"] .neuron-diagram:hover img {
+  filter: grayscale(1) brightness(1.1);
+}
+
+/* Brain label flips to dark + light gray */
+[data-theme="dark"] .brain-label {
+  background: rgba(0, 0, 0, 0.95);
+  color: var(--rtr-text);
+}
+
+/* Selection */
+[data-theme="dark"] ::selection {
+  background: #cccccc;
+  color: #000;
+}
+[data-theme="dark"] ::-moz-selection {
+  background: #cccccc;
+  color: #000;
+}
+
+/* Quiz modal */
+[data-theme="dark"] .quiz-modal {
+  background: var(--rtr-surface);
+  color: var(--rtr-text);
+}
+[data-theme="dark"] .quiz-question { color: var(--rtr-text); }
+[data-theme="dark"] .quiz-question-label,
+[data-theme="dark"] .quiz-progress-label { color: var(--rtr-text-muted); }
+[data-theme="dark"] .quiz-progress-bar { background: var(--rtr-border); }
+[data-theme="dark"] .quiz-choice {
+  background: var(--rtr-bg);
+  color: var(--rtr-text);
+  border-color: var(--rtr-border);
+}
+[data-theme="dark"] .quiz-choice:hover { border-color: var(--rtr-text); }
+[data-theme="dark"] .quiz-choice.selected {
+  border-color: var(--rtr-text);
+  background: #1a1a1a;
+}
+[data-theme="dark"] .quiz-choice.correct {
+  border-color: #4caf7a;
+  background: #1f3a2a;
+  color: #c5e8d3;
+}
+[data-theme="dark"] .quiz-choice.incorrect {
+  border-color: #d96a5e;
+  background: #3a2222;
+  color: #f3c8c5;
+}
+[data-theme="dark"] .quiz-submit-btn {
+  background: var(--rtr-text);
+  color: var(--rtr-bg);
+  border-color: var(--rtr-text);
+}
+[data-theme="dark"] .quiz-submit-btn:hover:not(:disabled) {
+  background: var(--rtr-bg);
+  color: var(--rtr-text);
+  border-color: var(--rtr-text);
+}
+[data-theme="dark"] .quiz-close { color: var(--rtr-text-muted); }
+[data-theme="dark"] .quiz-close:hover { color: var(--rtr-text); }
+[data-theme="dark"] .quiz-attempts { border-top-color: var(--rtr-border); }
+
+/* Definition tooltips */
+[data-theme="dark"] .def-tooltip {
+  background: var(--rtr-surface) !important;
+  color: var(--rtr-text) !important;
+  border: 1px solid var(--rtr-border);
+}
+[data-theme="dark"] .def-tooltip::after { border-top-color: var(--rtr-surface); }
+[data-theme="dark"] .def-tooltip.below::after {
+  border-top-color: transparent;
+  border-bottom-color: var(--rtr-surface);
+}
+
+/* Figure caption tooltip */
+[data-theme="dark"] .figure-with-caption .figure-caption {
+  background: var(--rtr-surface);
+  color: var(--rtr-text);
+}
