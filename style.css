@@ -1357,6 +1357,15 @@ img {
   .desktop-nav { padding-right: 0; }
 }
 
+/* Tablet range: pill collides with centered nav links — float it just below the masthead */
+@media (min-width: 768px) and (max-width: 1023px) {
+  #theme-toggle {
+    top: 100%;
+    right: 20px;
+    transform: translateY(8px);
+  }
+}
+
 /* ===================================
    Dark mode — Kindle monochrome
    Removable as a single block.
